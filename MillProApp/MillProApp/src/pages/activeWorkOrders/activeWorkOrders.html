@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Active Work Orders</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <br /><br />
+  <button color="primary" ion-button round (click)="newWorkOrder()"> New Work Order</button>
+  <br /><br />
+  <h2>Active Work Orders</h2>
+  <ion-list>
+    <ion-item *ngFor="let item of activeWorkOrders">
+      <button class="workorder-label" ion-button  (click)="openWorkOrder(item)" color="light" ion-left>
+        {{item.WorkOrderNumber}}
+      </button>
+      <button ion-button (click)="confirmDelete(item)" ion-right>
+        <ion-icon name="remove-circle" item-right></ion-icon>
+      </button>
+    </ion-item>
+  </ion-list>
+</ion-content>

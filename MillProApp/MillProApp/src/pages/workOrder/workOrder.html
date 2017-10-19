@@ -1,0 +1,35 @@
+
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <!-- <ion-item>
+    <ion-label>Email Address</ion-label>
+    <ion-input typeof="email" [(ngModel)]="email" name="email" (focusout)="isValidEmail()"></ion-input>
+  </ion-item>
+  <span  *ngIf="!isValidEmail()">Please enter a valid email address</span> -->
+  <br /><br />
+  <button color="primary" ion-button round (click)="scan()"> Scan </button>
+  <button color="primary" ion-button round ion-right (click)="complete()"> Complete </button>
+  <br /><br />
+  <h2>Scanned Items</h2>
+  <ion-list>
+    <ion-item *ngFor="let item of workOrderData?.Inventory">
+      <button class="workorder-label" ion-button color="light" ion-left>
+        {{item.ItemCode}}
+      </button>
+      <button class="workorder-quantity-label">
+        {{item.Quantity}}
+      </button>
+      <button ion-button (click)="confirmDeleteScannedItem(item.ItemCode)" ion-right>
+        <ion-icon name="remove-circle" item-right></ion-icon>
+      </button>
+    </ion-item>
+  </ion-list>
+</ion-content>

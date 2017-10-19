@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>User Info</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <button *ngIf="!isEditMode" ion-button color="primary" (click)="edit()">Edit</button>
+  <ion-list no-lines>
+
+            <form [formGroup]="userProfileEditForm">
+
+              <ion-item>
+                <ion-label floating>First Name</ion-label>
+                <ion-input [ngClass] = "{'readOnly-textbox': !isEditMode}"  [readonly] = "!isEditMode" formControlName="firstName" type="text" [class.invalid]="!userProfileEditForm.controls.firstName.valid && (userProfileEditForm.controls.firstName.dirty || submitAttempt)" [(ngModel)]="userProfileEditForm.controls.firstName.value"></ion-input>
+              </ion-item>
+
+              <ion-item *ngIf="!userProfileEditForm.controls.firstName.valid  && (userProfileEditForm.controls.firstName.dirty || submitAttempt)">
+                <p>Please enter a valid name.</p>
+              </ion-item>
+
+              <ion-item>
+                <ion-label floating>Last Name</ion-label>
+                <ion-input [ngClass] = "{'readOnly-textbox': !isEditMode}" [readonly] = "!isEditMode" formControlName="lastName" type="text" [class.invalid]="!userProfileEditForm.controls.lastName.valid && (userProfileEditForm.controls.lastName.dirty || submitAttempt)" [(ngModel)] = "userProfileEditForm.controls.lastName.value"></ion-input>
+              </ion-item>
+
+              <ion-item *ngIf="!userProfileEditForm.controls.lastName.valid  && (userProfileEditForm.controls.lastName.dirty || submitAttempt)">
+                <p>Please enter a valid name.</p>
+              </ion-item>
+
+              <ion-item>
+                <ion-label floating>Company</ion-label>
+                <ion-input [ngClass] = "{'readOnly-textbox': !isEditMode}" [readonly] = "!isEditMode" formControlName="company" type="text" [class.invalid]="!userProfileEditForm.controls.company.valid && (userProfileEditForm.controls.company.dirty || submitAttempt)" [(ngModel)] = "userProfileEditForm.controls.company.value"></ion-input>
+              </ion-item>
+
+              <ion-item *ngIf="!userProfileEditForm.controls.company.valid  && (userProfileEditForm.controls.company.dirty || submitAttempt)">
+                <p>Please enter a valid company name.</p>
+              </ion-item>
+
+              <ion-item>
+                <ion-label floating>Company Email</ion-label>
+                <ion-input [ngClass] = "{'readOnly-textbox': !isEditMode}" [readonly] = "!isEditMode" formControlName="companyEmail" type="text" [class.invalid]="!userProfileEditForm.controls.companyEmail.valid && (userProfileEditForm.controls.companyEmail.dirty || submitAttempt)" [(ngModel)] = "userProfileEditForm.controls.companyEmail.value"></ion-input>
+              </ion-item>
+
+              <ion-item *ngIf="!userProfileEditForm.controls.companyEmail.valid  && (userProfileEditForm.controls.companyEmail.dirty || submitAttempt)">
+                <p>Please enter a valid company email.</p>
+              </ion-item>
+
+            </form>
+          </ion-list>
+
+          <button *ngIf="isEditMode" ion-button full color="primary" (click)="save()">Update Account!</button>
+
+</ion-content>

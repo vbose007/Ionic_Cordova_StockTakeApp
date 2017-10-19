@@ -1,0 +1,93 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Sign In</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+
+ 
+
+
+      <p *ngIf="submitAttempt" style="color: #ea6153;">Please fill out all details accurately.</p>
+
+      <ion-list no-lines>
+
+        <form [formGroup]="loginForm">
+
+          <ion-item>
+            <ion-label floating>Email Address</ion-label>
+            <ion-input [class.invalid]="(!loginForm.controls.username.valid ) && (loginForm.controls.username.dirty || submitAttempt)" formControlName="username" type="text"></ion-input>
+            <!--<ion-input [class.invalid]="!loginForm.controls.username.valid && (loginForm.controls.username.dirty || submitAttempt)" formControlName="username" type="text" (change)="checkIsUsernameAvailable(loginForm.controls.username)"></ion-input>-->
+          </ion-item>
+
+          <!--<ion-item *ngIf="loginForm.controls.username.pending">
+            <p>Checking email address...</p>
+          </ion-item>-->
+
+          <!--<ion-item *ngIf="invalidUsername && !loginForm.controls.username.pending && (loginForm.controls.username.dirty || submitAttempt)">
+            <p>Sorry, that email address is already registered. Please login using this email address</p>
+          </ion-item>-->
+
+          <!--<ion-item *ngIf="(invalidUsername ||!loginForm.controls.username.valid) && !loginForm.controls.username.pending && (loginForm.controls.username.dirty || submitAttempt)">
+            <p>Invalid email address</p>
+          </ion-item>-->
+
+          <ion-item>
+            <ion-label floating>Enter a Password</ion-label>
+            <ion-input [class.invalid]="!loginForm.controls.password.valid && (loginForm.controls.password.dirty || submitAttempt)" formControlName="password" type="password"></ion-input>            
+          </ion-item>
+
+          <!--<ion-item *ngIf="!loginForm.controls.password.valid && !loginForm.controls.password.pending && (loginForm.controls.password.dirty || submitAttempt)">
+            <p>Invalid Password</p>
+            <p>A Password must contain atleast 1 alphabet, atleast 1  number and only characters and Numbers</p>
+          </ion-item>-->
+        </form>
+
+      </ion-list>
+
+      <button ion-button full color="primary" (click)="login()">Login</button>
+
+      <button ion-button full color="secondary" (click)="resetPassword()">Reset Password</button>
+
+  
+
+  
+
+  <!--<br/><br/>
+  <h2>Register</h2>
+
+  <form #regForm="ngForm">
+    <div class="form-group">
+      <label for="firstName">Name</label>
+      <input type="text" class="form-control" id="firstName" required [(ngModel)]="model.firstName">
+    </div>
+    <div class="form-group">
+      <label for="lastName">LastName</label>
+      <input type="text" class="form-control" id="lastName" required [(ngModel)]="model.lastName">
+    </div>
+    <div class="form-group">
+      <label for="companyName">Company Name</label>
+      <input type="text" class="form-control" id="companyName" required [(ngModel)]="model.companyName">
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" class="form-control" id="email" required [(ngModel)]="model.email">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" required [(ngModel)]="model.password">
+    </div>
+    <div class="form-group">
+      <label for="confirmPassword">Confirm Password</label>
+      <input type="password" class="form-control" id="confirmPassword" required [(ngModel)]="model.confirmPassword">
+    </div>
+
+
+    <button type="submit" color="primary" ion-button>Submit</button>
+
+  </form>-->
+
+</ion-content>

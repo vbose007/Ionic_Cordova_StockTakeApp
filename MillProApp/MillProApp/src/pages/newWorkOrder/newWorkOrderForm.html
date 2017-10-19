@@ -1,0 +1,20 @@
+
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>New Work Order</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="createNew()">
+    <ion-item>
+      <ion-label>Work Order Number</ion-label>
+      <ion-input typeof="text" [(ngModel)]="newWorkOrder.WorkOrderNumber" name="WorkOrderNumber"></ion-input>
+    </ion-item>
+    <button type="submit" color="primary" ion-button round>Start</button>
+    <button type="button" color="light" (click)="cancel()" ion-button round>Cancel</button>
+  </form>
+</ion-content>
